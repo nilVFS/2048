@@ -14,9 +14,6 @@ body {
 }
 
 #gameboard {
-    --grid-size: 4;
-    --cell-size: 20vmin;
-    --cell-gap: 2vmin;
     display: grid;
     grid-template-columns: repeat(var(--grid-size), var(--cell-size));
     grid-template-rows: repeat(var(--grid-size), var(--cell-size));
@@ -44,10 +41,18 @@ body {
     width: var(--cell-size);
     height: var(--cell-size);
     font-weight: bold;
-    background-color: aquamarine;
     border-radius: 1vmin;
     top: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
     left: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-    background-color: hsl(200, 50%, var(--background-lightness));
-    color: hsl(200, 25%, var(--text-lightness));
+    background-color: hsl(240, 50%, var(--background-lightness));
+    color: hsl(240, 25%, var(--text-lightness));
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0.5;
+        transform: scale(0);
+    }
 }
